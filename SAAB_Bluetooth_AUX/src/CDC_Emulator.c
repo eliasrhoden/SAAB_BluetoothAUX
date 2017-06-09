@@ -205,6 +205,10 @@ void irqProofDelay_ms(unsigned int ms){
 }
 
 
+char CDC_Emulator_isOK_ToEnterSleep(){
+	return 0 ;
+}
+
 
 
 
