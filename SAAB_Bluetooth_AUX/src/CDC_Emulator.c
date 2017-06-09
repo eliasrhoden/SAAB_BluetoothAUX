@@ -10,11 +10,8 @@
 #include <string.h>
 #include "DebugSerial.h"
 
-
 typedef enum{ACTIVE, IDLE} CDC_State;
 typedef enum{FALSE, TRUE} boolean;
-
-
 
 CDC_State stateOfCDC;
 boolean needToSendCDC_EventResponse;
@@ -167,7 +164,6 @@ void CDC_Emulator_sendCDC_Status(){
 	CAN_Mailman_transmitFrame(&frame);
 	needToSendCDC_EventResponse = FALSE;
 	resendDueToCDC_cmd = FALSE;
-	tim7->CNT = (short) 0;
 }
 
 //Called when new frames has arrived
@@ -206,6 +202,8 @@ void irqProofDelay_ms(unsigned int ms){
 
 
 char CDC_Emulator_isOK_ToEnterSleep(){
+	//Determine if it's ok for the unit to enter sleep
+	//Need to check how the CAN-bus behaves during idle (when the stereo isn't in use)
 	return 0 ;
 }
 

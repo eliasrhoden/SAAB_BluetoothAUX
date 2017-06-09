@@ -14,16 +14,20 @@
 
 #include "CDC_Emulator.h"
 #include "CAN_Test.h"
-#include "CAN_Mailman.h"
 #include "DebugSerial.h"
 #include "RN52_Handler.h"
 
 #define tim7 ((TIM_TypeDef *) TIM7_BASE)
 #define scb ((SCB_Type *) SCB_BASE)
 
+
+char beenInSleep = 0;
+
 //Function prototypes
 void initTimerIRQ();
 void CAN_RX0_IRQHandler();
+void enterSleep();
+void wakeUpFromSleep();
 
 void init(){
 	HAL_Init();
@@ -50,8 +54,15 @@ void startTimerIRQ(){
 	tim7->CR1 |= 1;					//Enable/Start counter
 }
 
+void stopTimerIRQ(){
+	tim7->CR1 &= ~1;				//Disable/Stop counter
+}
+
 //When a CAN-frame is received
 void CAN_RX0_IRQHandler(){
+	if(beenInSleep){
+		wakeUpFromSleep();
+	}
 	CDC_Emulator_handeRecivedFrames();
 	NVIC_ClearPendingIRQ(CAN_RX0_IRQn);
 }
@@ -64,10 +75,21 @@ void TIM7_DAC2_IRQHandler(){
 	tim7->SR &= ~(0x1);
 }
 
-void configSleep(){
-	//Processor should be asleep when not executing exceptions
-	//scb->SCR |= SCB_SCR_SLEEPONEXIT_Msk;
+
+void enterSleep(){
+	beenInSleep = 1;
+	stopTimerIRQ();
+	HAL_DeInit();	//So HAL doesn't generate a SysTick IRQ.
+	scb->SCR |= SCB_SCR_SLEEPONEXIT_Msk;
 }
+
+void wakeUpFromSleep(){
+	scb->SCR &= ~(SCB_SCR_SLEEPONEXIT_Msk);
+	HAL_Init();	//So HAL library can be used in the CAN-Code.
+	startTimerIRQ();
+	beenInSleep = 0;
+}
+
 
 int main(void)
 {
@@ -76,10 +98,11 @@ int main(void)
 	DebugSerial_println("\n---- INIT COMPLETED ---- \n");
 	HAL_Delay(1000);
 	startTimerIRQ();
-	configSleep();
-
 	while(1){
-
+		HAL_Delay(3000);
+		if(CDC_Emulator_isOK_ToEnterSleep()){
+			enterSleep();
+		}
 	}
 }
 
