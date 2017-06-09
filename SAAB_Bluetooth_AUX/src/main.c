@@ -24,6 +24,8 @@ GPIO_TypeDef * portA = (GPIO_TypeDef *) GPIOA_BASE;
 GPIO_TypeDef * portB = (GPIO_TypeDef *) GPIOB_BASE;
 TIM_TypeDef * tim7;
 
+//Tjabba tjrna
+
 //Function prototypes
 void initTimerIRQ();
 void CAN_RX0_IRQHandler();
