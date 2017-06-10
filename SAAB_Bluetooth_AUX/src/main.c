@@ -19,7 +19,6 @@
 #define tim7 ((TIM_TypeDef *) TIM7_BASE)
 #define scb ((SCB_Type *) SCB_BASE)
 
-
 char beenInSleep = 0;
 
 //Function prototypes
@@ -81,6 +80,7 @@ void enterSleep(){
 	stopTimerIRQ();
 	DebugSerial_println("Entering sleep...");
 	HAL_DeInit();	//So HAL doesn't generate a SysTick IRQ.
+
 	scb->SCR |= SCB_SCR_SLEEPONEXIT_Msk;
 }
 
@@ -95,7 +95,7 @@ void wakeUpFromSleep(){
 
 int main(void)
 {
-	init();
+ 	init();
 	RN52_start();
 	DebugSerial_println("\n---- INIT COMPLETED ---- \n");
 	HAL_Delay(1000);
@@ -103,7 +103,7 @@ int main(void)
 	while(1){
 		HAL_Delay(3000);
 		if(CDC_Emulator_isOK_ToEnterSleep()){
-			enterSleep();
+			//enterSleep();
 		}
 	}
 }
