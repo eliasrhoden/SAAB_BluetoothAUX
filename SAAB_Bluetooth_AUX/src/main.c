@@ -13,7 +13,6 @@
 #include "stm32f3xx_nucleo_32.h"
 
 #include "CDC_Emulator.h"
-#include "CAN/CAN_Test.h"
 #include "Debug/DebugSerial.h"
 #include "RN52/RN52_Handler.h"
 
