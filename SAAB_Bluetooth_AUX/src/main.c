@@ -76,8 +76,10 @@ void TIM7_DAC2_IRQHandler(){
 
 
 void enterSleep(){
+	DebugSerial_println("Entering sleep...");
 	beenInSleep = 1;
 	stopTimerIRQ();
+	DebugSerial_println("Entering sleep...");
 	HAL_DeInit();	//So HAL doesn't generate a SysTick IRQ.
 	scb->SCR |= SCB_SCR_SLEEPONEXIT_Msk;
 }
@@ -85,6 +87,7 @@ void enterSleep(){
 void wakeUpFromSleep(){
 	scb->SCR &= ~(SCB_SCR_SLEEPONEXIT_Msk);
 	HAL_Init();	//So HAL library can be used in the CAN-Code.
+	DebugSerial_println("Waking up from sleep");
 	startTimerIRQ();
 	beenInSleep = 0;
 }
