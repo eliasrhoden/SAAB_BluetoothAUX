@@ -8,9 +8,9 @@
 #include "CAN_Mailman.h"
 #include "stm32f3xx.h"
 #include "stm32f3xx_nucleo_32.h"
-#include "DebugSerial.h"
+#include "../Debug/DebugSerial.h"
 #include "Custom_CAN_HAL.h"
-//#define DEBUG 0
+
 
 
 GPIO_TypeDef * portA;

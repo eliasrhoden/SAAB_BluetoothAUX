@@ -6,9 +6,9 @@
  */
 #include "CDC_Emulator.h"
 #include "SAAB_I-BUS_CONSTANTS.h"
-#include "CAN_Mailman.h"
+#include "CAN/CAN_Mailman.h"
 #include <string.h>
-#include "DebugSerial.h"
+#include "Debug/DebugSerial.h"
 
 typedef enum{ACTIVE, IDLE} CDC_State;
 typedef enum{FALSE, TRUE} boolean;

@@ -13,9 +13,9 @@
 #include "stm32f3xx_nucleo_32.h"
 
 #include "CDC_Emulator.h"
-#include "CAN_Test.h"
-#include "DebugSerial.h"
-#include "RN52_Handler.h"
+#include "CAN/CAN_Test.h"
+#include "Debug/DebugSerial.h"
+#include "RN52/RN52_Handler.h"
 
 #define tim7 ((TIM_TypeDef *) TIM7_BASE)
 #define scb ((SCB_Type *) SCB_BASE)

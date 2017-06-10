@@ -13,7 +13,7 @@
 #define TRUE 1
 #define FALSE 0
 
-#define DEBUG 0
+#define CAN_DEBUG 0
 
 CAN_TypeDef * can = (CAN_TypeDef *) CAN_BASE;
 CAN_STATE status = CAN_OK;
@@ -87,7 +87,7 @@ void initalizationModeConfig(short brpValue){
 	//can->MCR &= ~(1<<16);					//Don't freeze during debug
 	//can->MCR |= (1<<16);					//Freeze during debug
 	can->BTR |= (brpValue & 0x3FF);			//Default : TS1:4, TS2:3 ; For SAAB I_BUS BRP = 20
-#if DEBUG == 1
+#if CAN_DEBUG == 1
 	can->BTR |= (1<<30);			//Silent mode: 31, Loopback: 30 (FOR DEBUGGING!)
 #endif
 

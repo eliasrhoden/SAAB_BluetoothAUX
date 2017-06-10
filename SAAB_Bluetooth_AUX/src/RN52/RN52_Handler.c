@@ -5,6 +5,7 @@
  *      Author: elias
  */
 #include "stm32f3xx.h"
+#include "RN52_Handler.h"
 
 #define RN52_PWR_ENABLE_PIN 0 //PB0
 GPIO_TypeDef * portB = (GPIO_TypeDef *) GPIOB_BASE;

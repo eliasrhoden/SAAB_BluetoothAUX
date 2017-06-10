@@ -17,6 +17,9 @@ C_DEPS :=
 SUBDIRS := \
 HAL_Driver/Src \
 Utilities/STM32F3xx_Nucleo_32 \
+src/CAN \
 src \
+src/Debug \
+src/RN52 \
 startup \
 
