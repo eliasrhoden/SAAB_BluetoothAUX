@@ -61,14 +61,13 @@ void confUART(){
 	HAL_UART_Init(&uart);
 }
 
-void DebugSerial_print(unsigned char * string){
+void DebugSerial_print(char * string){
 	int stringLenght = strlen(string);
-	//uart.TxXferSize = stringLenght;
-	//uart.pTxBuffPtr = string;
-	HAL_UART_Transmit(&uart,string,stringLenght,SERIAL_TIMEOUT_ms);
+	unsigned char * stringToPrint = (unsigned char *) string;
+	HAL_UART_Transmit(&uart,stringToPrint,stringLenght,SERIAL_TIMEOUT_ms);
 }
 
-void DebugSerial_println(unsigned char * string){
+void DebugSerial_println(char * string){
 	int stringLenght = strlen(string);
 	char toPrint[stringLenght + 3];
 	strcpy(toPrint,string);

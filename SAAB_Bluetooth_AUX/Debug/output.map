@@ -13833,135 +13833,134 @@ LOAD c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.1
                 0x08002cf8       0x4c src/DebugSerial.o
                 0x08002cf8                confUART
  .text.DebugSerial_print
-                0x08002d44       0x2c src/DebugSerial.o
+                0x08002d44       0x30 src/DebugSerial.o
                 0x08002d44                DebugSerial_print
  .text.DebugSerial_println
-                0x08002d70       0x90 src/DebugSerial.o
-                0x08002d70                DebugSerial_println
+                0x08002d74       0x90 src/DebugSerial.o
+                0x08002d74                DebugSerial_println
  .text.DebugSerial_printHex
-                0x08002e00       0x2c src/DebugSerial.o
-                0x08002e00                DebugSerial_printHex
+                0x08002e04       0x2c src/DebugSerial.o
+                0x08002e04                DebugSerial_printHex
  .text.RN52_init
-                0x08002e2c       0x40 src/RN52_Handler.o
-                0x08002e2c                RN52_init
+                0x08002e30       0x40 src/RN52_Handler.o
+                0x08002e30                RN52_init
  .text.RN52_start
-                0x08002e6c       0x34 src/RN52_Handler.o
-                0x08002e6c                RN52_start
+                0x08002e70       0x34 src/RN52_Handler.o
+                0x08002e70                RN52_start
  .text.NVIC_EnableIRQ
-                0x08002ea0       0x30 src/main.o
+                0x08002ea4       0x30 src/main.o
  .text.NVIC_ClearPendingIRQ
-                0x08002ed0       0x34 src/main.o
+                0x08002ed4       0x34 src/main.o
  .text.NVIC_SetPriority
-                0x08002f04       0x54 src/main.o
- .text.init     0x08002f58       0x1c src/main.o
-                0x08002f58                init
+                0x08002f08       0x54 src/main.o
+ .text.init     0x08002f5c       0x1c src/main.o
+                0x08002f5c                init
  .text.initTimerIRQ
-                0x08002f74       0x60 src/main.o
-                0x08002f74                initTimerIRQ
+                0x08002f78       0x60 src/main.o
+                0x08002f78                initTimerIRQ
  .text.startTimerIRQ
-                0x08002fd4       0x1c src/main.o
-                0x08002fd4                startTimerIRQ
+                0x08002fd8       0x1c src/main.o
+                0x08002fd8                startTimerIRQ
  .text.stopTimerIRQ
-                0x08002ff0       0x1c src/main.o
-                0x08002ff0                stopTimerIRQ
+                0x08002ff4       0x1c src/main.o
+                0x08002ff4                stopTimerIRQ
  .text.CAN_RX0_IRQHandler
-                0x0800300c       0x24 src/main.o
-                0x0800300c                CAN_RX0_IRQHandler
+                0x08003010       0x24 src/main.o
+                0x08003010                CAN_RX0_IRQHandler
  .text.TIM7_DAC2_IRQHandler
-                0x08003030       0x28 src/main.o
-                0x08003030                TIM7_DAC2_IRQHandler
+                0x08003034       0x28 src/main.o
+                0x08003034                TIM7_DAC2_IRQHandler
  .text.enterSleep
-                0x08003058       0x2c src/main.o
-                0x08003058                enterSleep
+                0x0800305c       0x2c src/main.o
+                0x0800305c                enterSleep
  .text.wakeUpFromSleep
-                0x08003084       0x2c src/main.o
-                0x08003084                wakeUpFromSleep
- .text.main     0x080030b0       0x3c src/main.o
-                0x080030b0                main
+                0x08003088       0x2c src/main.o
+                0x08003088                wakeUpFromSleep
+ .text.main     0x080030b4       0x3c src/main.o
+                0x080030b4                main
  .text.SysTick_Handler
-                0x080030ec       0x10 src/stm32f3xx_it.o
-                0x080030ec                SysTick_Handler
- .text._sbrk    0x080030fc       0x58 src/syscalls.o
-                0x080030fc                _sbrk
+                0x080030f0       0x10 src/stm32f3xx_it.o
+                0x080030f0                SysTick_Handler
+ .text._sbrk    0x08003100       0x58 src/syscalls.o
+                0x08003100                _sbrk
  .text.SystemInit
-                0x08003154       0x84 src/system_stm32f3xx.o
-                0x08003154                SystemInit
+                0x08003158       0x84 src/system_stm32f3xx.o
+                0x08003158                SystemInit
  .text.Reset_Handler
-                0x080031d8       0x50 startup/startup_stm32f303x8.o
-                0x080031d8                Reset_Handler
+                0x080031dc       0x50 startup/startup_stm32f303x8.o
+                0x080031dc                Reset_Handler
  .text.Default_Handler
-                0x08003228        0x2 startup/startup_stm32f303x8.o
-                0x08003228                RTC_Alarm_IRQHandler
-                0x08003228                DebugMon_Handler
-                0x08003228                TIM1_CC_IRQHandler
-                0x08003228                HardFault_Handler
-                0x08003228                PVD_IRQHandler
-                0x08003228                TAMP_STAMP_IRQHandler
-                0x08003228                PendSV_Handler
-                0x08003228                NMI_Handler
-                0x08003228                EXTI3_IRQHandler
-                0x08003228                EXTI0_IRQHandler
-                0x08003228                FPU_IRQHandler
-                0x08003228                CAN_TX_IRQHandler
-                0x08003228                TIM1_UP_TIM16_IRQHandler
-                0x08003228                UsageFault_Handler
-                0x08003228                ADC1_2_IRQHandler
-                0x08003228                SPI1_IRQHandler
-                0x08003228                CAN_SCE_IRQHandler
-                0x08003228                DMA1_Channel4_IRQHandler
-                0x08003228                USART3_IRQHandler
-                0x08003228                DMA1_Channel7_IRQHandler
-                0x08003228                CAN_RX1_IRQHandler
-                0x08003228                I2C1_EV_IRQHandler
-                0x08003228                DMA1_Channel6_IRQHandler
-                0x08003228                TIM3_IRQHandler
-                0x08003228                RCC_IRQHandler
-                0x08003228                DMA1_Channel1_IRQHandler
-                0x08003228                Default_Handler
-                0x08003228                EXTI15_10_IRQHandler
-                0x08003228                COMP2_IRQHandler
-                0x08003228                TIM6_DAC1_IRQHandler
-                0x08003228                EXTI9_5_IRQHandler
-                0x08003228                RTC_WKUP_IRQHandler
-                0x08003228                MemManage_Handler
-                0x08003228                SVC_Handler
-                0x08003228                DMA1_Channel5_IRQHandler
-                0x08003228                EXTI4_IRQHandler
-                0x08003228                TIM1_TRG_COM_TIM17_IRQHandler
-                0x08003228                DMA1_Channel3_IRQHandler
-                0x08003228                WWDG_IRQHandler
-                0x08003228                TIM2_IRQHandler
-                0x08003228                EXTI1_IRQHandler
-                0x08003228                COMP4_6_IRQHandler
-                0x08003228                USART2_IRQHandler
-                0x08003228                DMA1_Channel2_IRQHandler
-                0x08003228                FLASH_IRQHandler
-                0x08003228                BusFault_Handler
-                0x08003228                USART1_IRQHandler
-                0x08003228                I2C1_ER_IRQHandler
-                0x08003228                EXTI2_TSC_IRQHandler
-                0x08003228                TIM1_BRK_TIM15_IRQHandler
- *fill*         0x0800322a        0x2 
- .text.__errno  0x0800322c        0xc c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-errno.o)
-                0x0800322c                __errno
+                0x0800322c        0x2 startup/startup_stm32f303x8.o
+                0x0800322c                RTC_Alarm_IRQHandler
+                0x0800322c                DebugMon_Handler
+                0x0800322c                TIM1_CC_IRQHandler
+                0x0800322c                HardFault_Handler
+                0x0800322c                PVD_IRQHandler
+                0x0800322c                TAMP_STAMP_IRQHandler
+                0x0800322c                PendSV_Handler
+                0x0800322c                NMI_Handler
+                0x0800322c                EXTI3_IRQHandler
+                0x0800322c                EXTI0_IRQHandler
+                0x0800322c                FPU_IRQHandler
+                0x0800322c                CAN_TX_IRQHandler
+                0x0800322c                TIM1_UP_TIM16_IRQHandler
+                0x0800322c                UsageFault_Handler
+                0x0800322c                ADC1_2_IRQHandler
+                0x0800322c                SPI1_IRQHandler
+                0x0800322c                CAN_SCE_IRQHandler
+                0x0800322c                DMA1_Channel4_IRQHandler
+                0x0800322c                USART3_IRQHandler
+                0x0800322c                DMA1_Channel7_IRQHandler
+                0x0800322c                CAN_RX1_IRQHandler
+                0x0800322c                I2C1_EV_IRQHandler
+                0x0800322c                DMA1_Channel6_IRQHandler
+                0x0800322c                TIM3_IRQHandler
+                0x0800322c                RCC_IRQHandler
+                0x0800322c                DMA1_Channel1_IRQHandler
+                0x0800322c                Default_Handler
+                0x0800322c                EXTI15_10_IRQHandler
+                0x0800322c                COMP2_IRQHandler
+                0x0800322c                TIM6_DAC1_IRQHandler
+                0x0800322c                EXTI9_5_IRQHandler
+                0x0800322c                RTC_WKUP_IRQHandler
+                0x0800322c                MemManage_Handler
+                0x0800322c                SVC_Handler
+                0x0800322c                DMA1_Channel5_IRQHandler
+                0x0800322c                EXTI4_IRQHandler
+                0x0800322c                TIM1_TRG_COM_TIM17_IRQHandler
+                0x0800322c                DMA1_Channel3_IRQHandler
+                0x0800322c                WWDG_IRQHandler
+                0x0800322c                TIM2_IRQHandler
+                0x0800322c                EXTI1_IRQHandler
+                0x0800322c                COMP4_6_IRQHandler
+                0x0800322c                USART2_IRQHandler
+                0x0800322c                DMA1_Channel2_IRQHandler
+                0x0800322c                FLASH_IRQHandler
+                0x0800322c                BusFault_Handler
+                0x0800322c                USART1_IRQHandler
+                0x0800322c                I2C1_ER_IRQHandler
+                0x0800322c                EXTI2_TSC_IRQHandler
+                0x0800322c                TIM1_BRK_TIM15_IRQHandler
+ *fill*         0x0800322e        0x2 
+ .text.__errno  0x08003230        0xc c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-errno.o)
+                0x08003230                __errno
  .text.__libc_init_array
-                0x08003238       0x50 c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-init.o)
-                0x08003238                __libc_init_array
- .text.memset   0x08003288       0x9c c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-memset.o)
-                0x08003288                memset
- .text.sprintf  0x08003324       0x4c c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-sprintf.o)
-                0x08003324                sprintf
- .text.strcpy   0x08003370       0xbc c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-strcpy.o)
-                0x08003370                strcpy
+                0x0800323c       0x50 c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-init.o)
+                0x0800323c                __libc_init_array
+ .text.memset   0x0800328c       0x9c c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-memset.o)
+                0x0800328c                memset
+ .text.sprintf  0x08003328       0x4c c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-sprintf.o)
+                0x08003328                sprintf
+ .text.strcpy   0x08003374       0xbc c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-strcpy.o)
+                0x08003374                strcpy
  .text._svfprintf_r
-                0x0800342c     0x16b0 c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-svfprintf.o)
-                0x0800342c                _svfprintf_r
+                0x08003430     0x16b0 c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-svfprintf.o)
+                0x08003430                _svfprintf_r
  .text.startup.register_fini
-                0x08004adc       0x14 c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x08004af0        0xc c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-atexit.o)
-                0x08004af0                atexit
- .text.quorem   0x08004afc      0x128 c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-dtoa.o)
- *fill*         0x08004c24        0x4 
+                0x08004ae0       0x14 c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x08004af4        0xc c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-atexit.o)
+                0x08004af4                atexit
+ .text.quorem   0x08004b00      0x128 c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-dtoa.o)
  .text._dtoa_r  0x08004c28      0xe58 c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m\libc.a(lib_a-dtoa.o)
                 0x08004c28                _dtoa_r
  .text.__libc_fini_array
@@ -14381,7 +14380,7 @@ LOAD c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.1
                 0x00000998       0x1e c:/users/elias/.p2/pool/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.13.2.201703061525/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/crtn.o
 OUTPUT(SAAB_Bluetooth_AUX.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x8667
+.debug_info     0x00000000     0x867b
  .debug_info    0x00000000      0x5d9 HAL_Driver/Src/stm32f3xx_hal.o
  .debug_info    0x000005d9      0xa67 HAL_Driver/Src/stm32f3xx_hal_can.o
  .debug_info    0x00001040      0xac3 HAL_Driver/Src/stm32f3xx_hal_cortex.o
@@ -14391,13 +14390,13 @@ OUTPUT(SAAB_Bluetooth_AUX.elf elf32-littlearm)
  .debug_info    0x00004758      0xda1 src/CAN_Mailman.o
  .debug_info    0x000054f9      0x586 src/CDC_Emulator.o
  .debug_info    0x00005a7f      0xb75 src/Custom_CAN_HAL.o
- .debug_info    0x000065f4      0x8d4 src/DebugSerial.o
- .debug_info    0x00006ec8      0x288 src/RN52_Handler.o
- .debug_info    0x00007150      0x910 src/main.o
- .debug_info    0x00007a60       0xbd src/stm32f3xx_it.o
- .debug_info    0x00007b1d      0x6ca src/syscalls.o
- .debug_info    0x000081e7      0x400 src/system_stm32f3xx.o
- .debug_info    0x000085e7       0x80 startup/startup_stm32f303x8.o
+ .debug_info    0x000065f4      0x8e8 src/DebugSerial.o
+ .debug_info    0x00006edc      0x288 src/RN52_Handler.o
+ .debug_info    0x00007164      0x910 src/main.o
+ .debug_info    0x00007a74       0xbd src/stm32f3xx_it.o
+ .debug_info    0x00007b31      0x6ca src/syscalls.o
+ .debug_info    0x000081fb      0x400 src/system_stm32f3xx.o
+ .debug_info    0x000085fb       0x80 startup/startup_stm32f303x8.o
 
 .debug_abbrev   0x00000000     0x1850
  .debug_abbrev  0x00000000      0x19b HAL_Driver/Src/stm32f3xx_hal.o
@@ -14598,7 +14597,7 @@ OUTPUT(SAAB_Bluetooth_AUX.elf elf32-littlearm)
  .debug_macro   0x00020a66       0x88 src/syscalls.o
  .debug_macro   0x00020aee      0x47c src/system_stm32f3xx.o
 
-.debug_line     0x00000000     0xc2c4
+.debug_line     0x00000000     0xc2c5
  .debug_line    0x00000000      0xc25 HAL_Driver/Src/stm32f3xx_hal.o
  .debug_line    0x00000c25      0xed0 HAL_Driver/Src/stm32f3xx_hal_can.o
  .debug_line    0x00001af5      0xd6a HAL_Driver/Src/stm32f3xx_hal_cortex.o
@@ -14608,15 +14607,15 @@ OUTPUT(SAAB_Bluetooth_AUX.elf elf32-littlearm)
  .debug_line    0x00005d53      0xc58 src/CAN_Mailman.o
  .debug_line    0x000069ab      0xcd8 src/CDC_Emulator.o
  .debug_line    0x00007683      0xd0d src/Custom_CAN_HAL.o
- .debug_line    0x00008390      0xb68 src/DebugSerial.o
- .debug_line    0x00008ef8      0xad5 src/RN52_Handler.o
- .debug_line    0x000099cd      0xcaf src/main.o
- .debug_line    0x0000a67c      0xb0d src/stm32f3xx_it.o
- .debug_line    0x0000b189      0x5c5 src/syscalls.o
- .debug_line    0x0000b74e      0xaf7 src/system_stm32f3xx.o
- .debug_line    0x0000c245       0x7f startup/startup_stm32f303x8.o
+ .debug_line    0x00008390      0xb69 src/DebugSerial.o
+ .debug_line    0x00008ef9      0xad5 src/RN52_Handler.o
+ .debug_line    0x000099ce      0xcaf src/main.o
+ .debug_line    0x0000a67d      0xb0d src/stm32f3xx_it.o
+ .debug_line    0x0000b18a      0x5c5 src/syscalls.o
+ .debug_line    0x0000b74f      0xaf7 src/system_stm32f3xx.o
+ .debug_line    0x0000c246       0x7f startup/startup_stm32f303x8.o
 
-.debug_str      0x00000000    0xbf153
+.debug_str      0x00000000    0xbf161
  .debug_str     0x00000000    0xbbbf2 HAL_Driver/Src/stm32f3xx_hal.o
                               0xbbffb (size before relaxing)
  .debug_str     0x000bbbf2      0x4c5 HAL_Driver/Src/stm32f3xx_hal_can.o
@@ -14635,17 +14634,17 @@ OUTPUT(SAAB_Bluetooth_AUX.elf elf32-littlearm)
                               0xbbcf7 (size before relaxing)
  .debug_str     0x000bdb0d      0x25e src/Custom_CAN_HAL.o
                               0xbbe0e (size before relaxing)
- .debug_str     0x000bdd6b       0xaa src/DebugSerial.o
-                              0xbbf08 (size before relaxing)
- .debug_str     0x000bde15       0x47 src/RN52_Handler.o
+ .debug_str     0x000bdd6b       0xb8 src/DebugSerial.o
+                              0xbbf16 (size before relaxing)
+ .debug_str     0x000bde23       0x47 src/RN52_Handler.o
                               0xbb9e0 (size before relaxing)
- .debug_str     0x000bde5c       0xdb src/main.o
+ .debug_str     0x000bde6a       0xdb src/main.o
                               0xbc2a6 (size before relaxing)
- .debug_str     0x000bdf37       0x38 src/stm32f3xx_it.o
+ .debug_str     0x000bdf45       0x38 src/stm32f3xx_it.o
                               0xbb931 (size before relaxing)
- .debug_str     0x000bdf6f     0x1176 src/syscalls.o
+ .debug_str     0x000bdf7d     0x1176 src/syscalls.o
                                0x76f9 (size before relaxing)
- .debug_str     0x000bf0e5       0x6e src/system_stm32f3xx.o
+ .debug_str     0x000bf0f3       0x6e src/system_stm32f3xx.o
                               0xbba6a (size before relaxing)
 
 .comment        0x00000000       0x6e
