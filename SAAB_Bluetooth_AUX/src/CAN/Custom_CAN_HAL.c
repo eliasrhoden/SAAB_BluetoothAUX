@@ -13,7 +13,7 @@
 #define TRUE 1
 #define FALSE 0
 
-#define CAN_DEBUG 1
+#define CAN_DEBUG 0
 
 CAN_TypeDef * can = (CAN_TypeDef *) CAN_BASE;
 CAN_STATE status = CAN_OK;

@@ -19,7 +19,7 @@
 #define tim7 ((TIM_TypeDef *) TIM7_BASE)
 #define scb ((SCB_Type *) SCB_BASE)
 
-char beenInSleep = 0;
+char stereoHasBeenOff = 0;
 
 //Function prototypes
 void initTimerIRQ();
@@ -58,8 +58,8 @@ void stopTimerIRQ(){
 
 //When a CAN-frame is received
 void CAN_RX0_IRQHandler(){
-	if(beenInSleep){
-		//wakeUpFromSleep();
+	if(stereoHasBeenOff){
+		wakeUpFromSleep();
 	}
 	CDC_Emulator_handeRecivedFrames();
 	NVIC_ClearPendingIRQ(CAN_RX0_IRQn);
@@ -76,19 +76,14 @@ void TIM7_DAC2_IRQHandler(){
 
 void enterSleep(){
 	DebugSerial_println("Entering sleep...");
-	beenInSleep = 1;
-	stopTimerIRQ();
-	HAL_DeInit();	//So HAL doesn't generate a SysTick IRQ.
-
-	scb->SCR |= SCB_SCR_SLEEPONEXIT_Msk;
+	stereoHasBeenOff = 1;
+	//Put RN52 to sleep (if possible)
 }
 
 void wakeUpFromSleep(){
-	scb->SCR &= ~(SCB_SCR_SLEEPONEXIT_Msk);
-	HAL_Init();	//So HAL library can be used in the CAN-Code.
 	DebugSerial_println("Waking up from sleep");
-	startTimerIRQ();
-	beenInSleep = 0;
+	stereoHasBeenOff = 0;
+	//Wake up RN52
 }
 
 
@@ -101,8 +96,8 @@ int main(void)
 	startTimerIRQ();
 	while(1){
 		HAL_Delay(3000);
-		if(CDC_Emulator_isOK_ToEnterSleep()){
-			//enterSleep();
+		if(CDC_Emulator_isOK_ToEnterSleep() && !(stereoHasBeenOff)){
+			enterSleep();
 		}
 	}
 }
