@@ -8,10 +8,10 @@
 #include "CAN_Mailman.h"
 #include "stm32f3xx.h"
 #include "stm32f3xx_nucleo_32.h"
-#include "DebugSerial.h"
+#include "../Debug/DebugSerial.h"
 #include "Custom_CAN_HAL.h"
-//#define DEBUG 0
 
+#define printDebug
 
 GPIO_TypeDef * portA;
 CAN_HandleTypeDef hcan;
@@ -28,8 +28,6 @@ void CAN_Mailman_Init(int bitratePrescaler){
 	hcan.Instance->IER |= (0x1 << 1);
 	NVIC_EnableIRQ(CAN_RX0_IRQn);
 	NVIC_SetPriority(CAN_RX0_IRQn,4);
-
-
 }
 
 MailmanStatus getMailmanStatusFromCAN_HAL(CAN_STATE HAL_Status){
@@ -63,6 +61,7 @@ MailmanStatus CAN_Mailman_reciveFrame(SAAB_CAN_FRAME * reciveFrame){
 
 	MailmanStatus st = getMailmanStatusFromCAN_HAL(CAN_HAL_getStatus());
 
+#ifdef printDebug
 	if(st != OK){
 		DebugSerial_println("\n --- Mailman failed to recive a frame (TIMEOUT) --- \n");
 	}
@@ -77,6 +76,7 @@ MailmanStatus CAN_Mailman_reciveFrame(SAAB_CAN_FRAME * reciveFrame){
 		}
 		DebugSerial_println("\n");
 	}
+#endif
 
 	return st;
 }
@@ -96,6 +96,7 @@ MailmanStatus CAN_Mailman_transmitFrame(SAAB_CAN_FRAME * transmitFrame){
 	CAN_HAL_transmit(&frameToSend);
 	MailmanStatus st = getMailmanStatusFromCAN_HAL(CAN_HAL_getStatus());
 
+#ifdef printDebug
 	if(st != OK){
 		DebugSerial_println("\n --- Mailman failed to transmit a frame (TIMEOUT) --- \n");
 	}
@@ -110,6 +111,7 @@ MailmanStatus CAN_Mailman_transmitFrame(SAAB_CAN_FRAME * transmitFrame){
 		}
 		DebugSerial_println("\n");
 	}
+#endif
 
 	return st;
 }

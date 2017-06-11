@@ -6,20 +6,18 @@
  */
 #include "CDC_Emulator.h"
 #include "SAAB_I-BUS_CONSTANTS.h"
-#include "CAN_Mailman.h"
+#include "CAN/CAN_Mailman.h"
 #include <string.h>
-#include "DebugSerial.h"
-
+#include "Debug/DebugSerial.h"
 
 typedef enum{ACTIVE, IDLE} CDC_State;
 typedef enum{FALSE, TRUE} boolean;
-
-
 
 CDC_State stateOfCDC;
 boolean needToSendCDC_EventResponse;
 boolean resendDueToCDC_cmd;
 TIM_TypeDef * tim6 = (TIM_TypeDef *) TIM6_BASE;
+unsigned int nrOfSentStatuses = 0;
 
 void sendStatusOfNodeResponse(SAAB_CAN_FRAME frame);
 void sendNodeStatus_sequence(unsigned char response[4][8]);
@@ -167,7 +165,7 @@ void CDC_Emulator_sendCDC_Status(){
 	CAN_Mailman_transmitFrame(&frame);
 	needToSendCDC_EventResponse = FALSE;
 	resendDueToCDC_cmd = FALSE;
-	tim7->CNT = (short) 0;
+	nrOfSentStatuses++;
 }
 
 //Called when new frames has arrived
@@ -188,6 +186,7 @@ void CDC_Emulator_handeRecivedFrames(){
 	default:			//Here should I put some error handling... #PallaDeeeeeet
 		break;
 	}
+	nrOfSentStatuses = 0;
 }
 
 void irqProofDelay_ms(unsigned int ms){
@@ -204,6 +203,12 @@ void irqProofDelay_ms(unsigned int ms){
 
 }
 
+
+char CDC_Emulator_isOK_ToEnterSleep(){
+	//Determine if it's ok for the unit to enter sleep
+	//Need to check how the CAN-bus behaves during idle (when the stereo isn't in use)
+	return nrOfSentStatuses > 10;
+}
 
 
 

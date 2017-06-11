@@ -14,5 +14,6 @@ extern TIM_TypeDef * tim7;	//Defined in main
 	void CDC_Emulator_Init();
 	void CDC_Emulator_sendCDC_Status();
 	void CDC_Emulator_handeRecivedFrames();
+	char CDC_Emulator_isOK_ToEnterSleep();
 
 #endif /* CDC_EMULATOR_H_ */
