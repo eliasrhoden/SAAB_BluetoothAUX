@@ -59,7 +59,7 @@ void stopTimerIRQ(){
 //When a CAN-frame is received
 void CAN_RX0_IRQHandler(){
 	if(beenInSleep){
-		wakeUpFromSleep();
+		//wakeUpFromSleep();
 	}
 	CDC_Emulator_handeRecivedFrames();
 	NVIC_ClearPendingIRQ(CAN_RX0_IRQn);
@@ -78,7 +78,6 @@ void enterSleep(){
 	DebugSerial_println("Entering sleep...");
 	beenInSleep = 1;
 	stopTimerIRQ();
-	DebugSerial_println("Entering sleep...");
 	HAL_DeInit();	//So HAL doesn't generate a SysTick IRQ.
 
 	scb->SCR |= SCB_SCR_SLEEPONEXIT_Msk;
