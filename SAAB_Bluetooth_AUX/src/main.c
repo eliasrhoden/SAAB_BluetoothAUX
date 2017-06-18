@@ -29,6 +29,7 @@ void wakeUpFromSleep();
 
 void init(){
 	HAL_Init();
+	HAL_Delay(500);
 	DebugSerial_init();
 	CDC_Emulator_Init();
 	RN52_init();

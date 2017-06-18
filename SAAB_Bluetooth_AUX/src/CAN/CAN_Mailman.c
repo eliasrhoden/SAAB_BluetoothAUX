@@ -62,11 +62,9 @@ MailmanStatus CAN_Mailman_reciveFrame(SAAB_CAN_FRAME * reciveFrame){
 	MailmanStatus st = getMailmanStatusFromCAN_HAL(CAN_HAL_getStatus());
 
 #ifdef printDebug
-	if(st != OK){
-		DebugSerial_println("\n --- Mailman failed to recive a frame (TIMEOUT) --- \n");
-	}
 
-	if(st == OK){
+	switch(st){
+	case OK:
 		DebugSerial_print("Received ID: ");
 		DebugSerial_printHex(reciveFrame->ID);
 		DebugSerial_print("\n\r");
@@ -75,6 +73,15 @@ MailmanStatus CAN_Mailman_reciveFrame(SAAB_CAN_FRAME * reciveFrame){
 			DebugSerial_print(" | ");
 		}
 		DebugSerial_println("\n");
+		break;
+	case FAILED:
+		DebugSerial_println("\n --- Mailman failed to recive a frame (FAILED) --- \n");
+	break;
+	case TIMEOUT:
+		DebugSerial_println("\n --- Mailman failed to recive a frame (TIMEOUT) --- \n");
+		break;
+	default:
+		DebugSerial_println("\n --- Mailman failed to recive a frame (UNKNOWN ERROR) --- \n");
 	}
 #endif
 

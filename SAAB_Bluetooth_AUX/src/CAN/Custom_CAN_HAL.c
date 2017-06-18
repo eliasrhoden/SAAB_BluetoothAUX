@@ -29,6 +29,7 @@ void initalizationModeConfig(short brpValue);
 void leaveInitAndEnterNormalMode();
 void writeFrameToMailBox(CanTxMsgTypeDef * frame, CAN_TxMailBox_TypeDef * mailbox);
 void requestTransmission(int mailbox);
+char transmissionSuccess(int mailbox);
 void getFrameInfoFromMailboxToFrame(CAN_FIFOMailBox_TypeDef * mailbox, CanRxMsgTypeDef * frame);
 void getDataFromMailboxToFrame(CAN_FIFOMailBox_TypeDef * mailbox, CanRxMsgTypeDef * frame);
 void releaseMailBox(int mailboxNR);
@@ -37,13 +38,15 @@ void delay_ms();
 
 void setCAN_Status(CAN_STATE stateToSet){
 	//For reporting errors/ statuses in functions
+	status = stateToSet;
+	/*
 	if(stateToSet == status){
 		return;
 	}
 
 	if(stateToSet != CAN_OK && status == CAN_OK){
 		status = stateToSet;
-	}
+	}*/
 }
 
 
@@ -190,7 +193,7 @@ void writeFrameToMailBox(CanTxMsgTypeDef * frame, CAN_TxMailBox_TypeDef * mailbo
 void requestTransmission(int mailbox){
 	can->sTxMailBox[mailbox].TIR |= 0x1; 				//request transmit
 
-	for(int i = 0;!(can->TSR & CAN_TSR_TME0);i++){
+	for(int i = 0;!(transmissionSuccess(mailbox));i++){
 		delay_ms(1);
 		if(i>TIMEOUT_MS){
 			setCAN_Status(CAN_TIMEOUT);
@@ -198,6 +201,18 @@ void requestTransmission(int mailbox){
 		}
 	}
 	setCAN_Status(CAN_OK);
+}
+
+char transmissionSuccess(int mailbox){
+	int RQCP_bit = 1;
+	int TXOK_bit = 2;
+	int TME_bit = (1<<26);
+
+	RQCP_bit = (RQCP_bit << 8*mailbox);
+	TXOK_bit = (TXOK_bit << 8*mailbox);
+	TME_bit = (TME_bit << mailbox);
+
+	return (can->TSR & RQCP_bit) && (can->TSR & TXOK_bit) && (can->TSR & TME_bit);
 }
 
 //Public function
