@@ -9,6 +9,7 @@
 #include "CAN/CAN_Mailman.h"
 #include <string.h>
 #include "Debug/DebugSerial.h"
+#include "RN52/RN52_Handler.h"
 
 typedef enum{ACTIVE, IDLE} CDC_State;
 typedef enum{FALSE, TRUE} boolean;
