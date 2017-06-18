@@ -93,7 +93,9 @@ int main(void)
  	init();
 	RN52_start();
 	DebugSerial_println("\n---- INIT COMPLETED ---- \n");
-	HAL_Delay(1000);
+	HAL_Delay(5000);
+	DebugSerial_println("Tries to kill RN52");
+	RN52_shutdown();
 	startTimerIRQ();
 	while(1){
 		HAL_Delay(3000);
