@@ -65,6 +65,7 @@ MailmanStatus CAN_Mailman_reciveFrame(SAAB_CAN_FRAME * reciveFrame){
 
 	switch(st){
 	case OK:
+		/*
 		DebugSerial_print("Received ID: ");
 		DebugSerial_printHex(reciveFrame->ID);
 		DebugSerial_print("\n\r");
@@ -73,10 +74,11 @@ MailmanStatus CAN_Mailman_reciveFrame(SAAB_CAN_FRAME * reciveFrame){
 			DebugSerial_print(" | ");
 		}
 		DebugSerial_println("\n");
+		*/
 		break;
 	case FAILED:
 		DebugSerial_println("\n --- Mailman failed to recive a frame (FAILED) --- \n");
-	break;
+		break;
 	case TIMEOUT:
 		DebugSerial_println("\n --- Mailman failed to recive a frame (TIMEOUT) --- \n");
 		break;
@@ -108,6 +110,7 @@ MailmanStatus CAN_Mailman_transmitFrame(SAAB_CAN_FRAME * transmitFrame){
 		DebugSerial_println("\n --- Mailman failed to transmit a frame (TIMEOUT) --- \n");
 	}
 
+	/*
 	if(st == OK){
 		DebugSerial_print("Transmitted ID: ");
 		DebugSerial_printHex(transmitFrame->ID);
@@ -118,6 +121,7 @@ MailmanStatus CAN_Mailman_transmitFrame(SAAB_CAN_FRAME * transmitFrame){
 		}
 		DebugSerial_println("\n");
 	}
+	*/
 #endif
 
 	return st;

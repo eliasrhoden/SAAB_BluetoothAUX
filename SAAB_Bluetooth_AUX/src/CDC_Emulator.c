@@ -83,7 +83,8 @@ void handleRecived_CDC_CMD(SAAB_CAN_FRAME frameWithCMD){
 		if (stateOfCDC == ACTIVE) {
 			switch (frameWithCMD.DATA[1]) {
 			case 0x59: // NXT
-				//RN52_playPause();
+				RN52_playPause();
+				DebugSerial_println("NXT-Button");
 				break;
 			case 0x84: // SEEK button (middle) long press on IHU
 				break;
@@ -108,21 +109,23 @@ void handleRecived_CDC_CMD(SAAB_CAN_FRAME frameWithCMD){
 			case 0x68: // IHU buttons "1-6"
 				switch (frameWithCMD.DATA[2]) {
 				case 0x01:
-					DebugSerial_println("RN52 Vol up");
+					DebugSerial_println("Button 1 RN52 Vol up");
 					RN52_VolumeUp();
 					break;
 				case 0x02:
-					DebugSerial_println("RN52 MAX VOL");
+					DebugSerial_println("Button 2 RN52 MAX VOL");
 					RN52_MaxVolume();
 					break;
 				case 0x03:
 					//RN52_setDiscoverable(1);
+					DebugSerial_println("Button 3");
 					break;
 				case 0x04:
-					DebugSerial_println("RN52 Vol down");
+					DebugSerial_println("Button 4 RN52 Vol down");
 					RN52_VolumeDown();
 					break;
 				case 0x06:
+					DebugSerial_println("Button 6");
 					//RN52_setDiscoverable(0);
 					break;
 				default:
