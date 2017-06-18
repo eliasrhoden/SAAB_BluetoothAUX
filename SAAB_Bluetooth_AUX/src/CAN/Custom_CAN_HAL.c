@@ -5,6 +5,7 @@
  *      Author: elias
  */
 #include "Custom_CAN_HAL.h"
+#include "../Delay.h"
 
 #define TIMEOUT_MS 500
 #define HSI_FREQ 8000000
@@ -17,7 +18,7 @@
 
 CAN_TypeDef * can = (CAN_TypeDef *) CAN_BASE;
 CAN_STATE status = CAN_OK;
-volatile TIM_TypeDef * tim15 = (volatile TIM_TypeDef *) TIM15_BASE;
+//volatile TIM_TypeDef * tim15 = (volatile TIM_TypeDef *) TIM15_BASE;
 
 //Private function prototypes
 int findFreeMailBox();
@@ -292,6 +293,7 @@ void releaseMailBox(int mailboxNR){
 	}
 }
 
+/* Moved to it's own file to use in other code
 void delay_ms(int ms){
 
 	//Leave it like you found it!
@@ -316,5 +318,6 @@ void delay_ms(int ms){
 	tim15->CNT = cntVal;
 
 }
+*/
 
 

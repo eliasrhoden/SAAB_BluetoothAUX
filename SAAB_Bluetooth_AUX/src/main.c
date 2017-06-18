@@ -44,7 +44,7 @@ void initTimerIRQ(){
 	tim7->ARR = (short) 190;		//reload value, to get an interrupt every 950ms
 
 	NVIC_EnableIRQ(TIM7_DAC2_IRQn);
-	NVIC_SetPriority(TIM7_DAC2_IRQn,4);
+	NVIC_SetPriority(TIM7_DAC2_IRQn,3);//Higher than CanRx-IRQ
 	__asm("CPSIE I \n\t");
 	tim7->CNT = (short) 1;
 }
@@ -79,12 +79,14 @@ void enterSleep(){
 	DebugSerial_println("Entering sleep...");
 	stereoHasBeenOff = 1;
 	//Put RN52 to sleep (if possible)
+	RN52_shutdown();
 }
 
 void wakeUpFromSleep(){
 	DebugSerial_println("Waking up from sleep");
 	stereoHasBeenOff = 0;
 	//Wake up RN52
+	RN52_start();
 }
 
 
@@ -93,12 +95,9 @@ int main(void)
  	init();
 	RN52_start();
 	DebugSerial_println("\n---- INIT COMPLETED ---- \n");
-	HAL_Delay(5000);
-	DebugSerial_println("Tries to kill RN52");
-	RN52_shutdown();
 	startTimerIRQ();
 	while(1){
-		HAL_Delay(3000);
+		HAL_Delay(500);
 		if(CDC_Emulator_isOK_ToEnterSleep() && !(stereoHasBeenOff)){
 			enterSleep();
 		}

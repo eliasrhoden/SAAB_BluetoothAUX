@@ -82,7 +82,7 @@ void handleRecived_CDC_CMD(SAAB_CAN_FRAME frameWithCMD){
 		if (stateOfCDC == ACTIVE) {
 			switch (frameWithCMD.DATA[1]) {
 			case 0x59: // NXT
-				//BT.bt_play();
+				//RN52_playPause();
 				break;
 			case 0x84: // SEEK button (middle) long press on IHU
 				break;
@@ -91,33 +91,38 @@ void handleRecived_CDC_CMD(SAAB_CAN_FRAME frameWithCMD){
 			case 0x76: // Random ON/OFF (Long press of CD/RDM button)
 				break;
 			case 0xB1: // Pause ON
-				//BT.bt_play();
+				//RN52_playPause();
 				break;
 			case 0xB0: // Pause OFF
-				//BT.bt_play();
+				//RN52_playPause();
 				break;
 			case 0x35: // Track +
-				//BT.bt_next();
+				DebugSerial_println("Next track button");
+				RN52_nextSong();
 				break;
 			case 0x36: // Track -
-				//BT.bt_prev();
+				DebugSerial_println("Prev track button");
+				RN52_prevSong();
 				break;
 			case 0x68: // IHU buttons "1-6"
 				switch (frameWithCMD.DATA[2]) {
 				case 0x01:
-					///BT.bt_volup();
+					DebugSerial_println("RN52 Vol up");
+					RN52_VolumeUp();
 					break;
 				case 0x02:
-					//BT.bt_set_maxvol();
+					DebugSerial_println("RN52 MAX VOL");
+					RN52_MaxVolume();
 					break;
 				case 0x03:
-					//BT.bt_reconnect();
+					//RN52_setDiscoverable(1);
 					break;
 				case 0x04:
-					//BT.bt_voldown();
+					DebugSerial_println("RN52 Vol down");
+					RN52_VolumeDown();
 					break;
 				case 0x06:
-					//BT.bt_disconnect();
+					//RN52_setDiscoverable(0);
 					break;
 				default:
 					break;
@@ -207,7 +212,7 @@ void irqProofDelay_ms(unsigned int ms){
 char CDC_Emulator_isOK_ToEnterSleep(){
 	//Determine if it's ok for the unit to enter sleep
 	//Need to check how the CAN-bus behaves during idle (when the stereo isn't in use)
-	return sleepCounter > 10;
+	return sleepCounter > 2;
 }
 
 

@@ -70,6 +70,7 @@
 "src/CAN/CAN_Mailman.o"
 "src/CAN/Custom_CAN_HAL.o"
 "src/CDC_Emulator.o"
+"src/Delay.o"
 "src/main.o"
 "src/stm32f3xx_it.o"
 "src/syscalls.o"

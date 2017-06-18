@@ -6,6 +6,7 @@
  */
 #include "stm32f3xx.h"
 #include "RN52_Handler.h"
+#include "../Delay.h"
 
 #define RN52_PWR_ENABLE_PIN 0 //PB0
 #define RN52_TIMEOUTms 500
@@ -35,8 +36,9 @@ void RN52_init(){
 
 void RN52_start(){
 	portB->ODR |= 1;
-	HAL_Delay(2000);
+	delay_ms(1500);
 	portB->ODR &= ~1;
+	RN52_MaxVolume();
 }
 
 void confGPIO(){
@@ -98,4 +100,15 @@ void RN52_VolumeUp(){
 void RN52_VolumeDown(){
 	unsigned char * string = (unsigned char *) "AT-\r";
 	HAL_UART_Transmit(&uart1,string,4,RN52_TIMEOUTms);
+}
+
+void RN52_MaxVolume(){
+
+	for(int i = 0;i<6;i++){
+		RN52_VolumeUp();
+		delay_ms(100);
+	}
+
+
+
 }

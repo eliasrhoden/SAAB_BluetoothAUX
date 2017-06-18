@@ -20,5 +20,7 @@ void RN52_nextSong();
 void RN52_prevSong();
 void RN52_VolumeUp();
 void RN52_VolumeDown();
+void RN52_MaxVolume();
+
 
 #endif /* RN52_HANDLER_H_ */
