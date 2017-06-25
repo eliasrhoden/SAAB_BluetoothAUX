@@ -25,6 +25,8 @@ void RN52_init(){
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 	portB->MODER |= (1 << RN52_PWR_ENABLE_PIN);
 
+	delay_init();
+
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	__HAL_RCC_USART1_CLK_ENABLE();
 

@@ -9,7 +9,13 @@
 
 volatile TIM_TypeDef * tim15 = (volatile TIM_TypeDef *) TIM15_BASE;
 
+
+void delay_init(){
+	__HAL_RCC_TIM15_CLK_ENABLE();
+}
+
 void delay_ms(int ms){
+
 
 	//Leave it like you found it!
 

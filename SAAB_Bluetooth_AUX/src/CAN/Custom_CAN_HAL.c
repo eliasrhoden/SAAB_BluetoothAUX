@@ -54,6 +54,7 @@ void setCAN_Status(CAN_STATE stateToSet){
 //Public function
 CAN_STATE CAN_HAL_init(short brpVal){
 	//__HAL_RCC_TIM15_CLK_ENABLE();
+	delay_init();
 	startClocks();
 	configPins();
 	exitSleepAndEnterInitMode();
