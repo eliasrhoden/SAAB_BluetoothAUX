@@ -53,7 +53,7 @@ void setCAN_Status(CAN_STATE stateToSet){
 
 //Public function
 CAN_STATE CAN_HAL_init(short brpVal){
-	__HAL_RCC_TIM15_CLK_ENABLE();
+	//__HAL_RCC_TIM15_CLK_ENABLE();
 	startClocks();
 	configPins();
 	exitSleepAndEnterInitMode();
@@ -91,6 +91,7 @@ void initalizationModeConfig(short brpValue){
 	//can->MCR &= ~(1<<16);					//Don't freeze during debug
 	//can->MCR |= (1<<16);					//Freeze during debug
 	can->BTR |= (brpValue & 0x3FF);			//Default : TS1:4, TS2:3 ; For SAAB I_BUS BRP = 20
+	can->MCR |= CAN_MCR_ABOM;				//Enable automatic bus-off recovery
 #if CAN_DEBUG == 1
 	can->BTR |= (1<<30);			//Silent mode: 31, Loopback: 30 (FOR DEBUGGING!)
 #endif
